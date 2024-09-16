@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CakeBuild", "CakeBuild\CakeBuild.csproj", "{F04316C6-53D8-4D10-9B5C-E96984B08C0C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RandomSeedXSkill", "RandomSeedXSkill\RandomSeedXSkill.csproj", "{950387C8-738E-4FF0-AB42-E2F7280388B0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F04316C6-53D8-4D10-9B5C-E96984B08C0C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F04316C6-53D8-4D10-9B5C-E96984B08C0C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F04316C6-53D8-4D10-9B5C-E96984B08C0C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F04316C6-53D8-4D10-9B5C-E96984B08C0C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{950387C8-738E-4FF0-AB42-E2F7280388B0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{950387C8-738E-4FF0-AB42-E2F7280388B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{950387C8-738E-4FF0-AB42-E2F7280388B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{950387C8-738E-4FF0-AB42-E2F7280388B0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
