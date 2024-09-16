@@ -1,0 +1,14 @@
+{
+    "type": "code",
+    "modid": "randomseedxskill",
+    "name": "RandomSeedXSkill",
+    "authors": [
+        "SiiMeR"
+    ],
+    "description": "Adds a new skill 'Forest Fortune' that gives you a chance to get a random tree seed upon chopping down a tree.",
+    "version": "1.0.0",
+    "dependencies": {
+        "game": "1.19.8",
+        "xlib": ""
+    }
+}
