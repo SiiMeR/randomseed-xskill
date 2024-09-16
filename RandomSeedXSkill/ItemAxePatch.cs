@@ -25,6 +25,11 @@ public class ItemAxePatch
             return;
         }
 
+        if (blockSel.Block.BlockMaterial != EnumBlockMaterial.Wood)
+        {
+            return;
+        }
+
         if (byEntity is not EntityPlayer playerEntity)
         {
             return;
