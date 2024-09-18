@@ -6,7 +6,7 @@
         "SiiMeR"
     ],
     "description": "Adds a new ability 'Forest Fortune' that gives you a chance to get a random tree seed upon chopping down a tree.",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "dependencies": {
         "game": "1.19.8",
         "xlib": ""

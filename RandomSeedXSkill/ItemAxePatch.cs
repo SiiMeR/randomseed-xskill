@@ -19,6 +19,14 @@ public class ItemAxePatch
         BlockSelection blockSel,
         float dropQuantityMultiplier = 1f)
     {
+        if (blockSel.Block.Attributes == null)
+        {
+            return;
+        }
+        
+        if(!blockSel.Block.Attributes.KeyExists("treeFellingGroupCode")){
+            return;
+        }
         var groupCode = blockSel.Block.Attributes["treeFellingGroupCode"].AsString("");
         if (string.IsNullOrEmpty(groupCode))
         {
