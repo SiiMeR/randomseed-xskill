@@ -12,24 +12,24 @@ namespace RandomSeedXSkill;
 public class ItemAxePatch
 {
     [HarmonyPostfix]
-    [HarmonyPatch(typeof(EntityAgent), "OnBlockBrokenWith")]
+    [HarmonyPatch(typeof(ItemAxe), "OnBlockBrokenWith")]
     public static void OnBlockBrokenWith(ItemAxe __instance, IWorldAccessor world,
         Entity byEntity,
         ItemSlot itemslot,
         BlockSelection blockSel,
         float dropQuantityMultiplier = 1f)
     {
+        if (world.Side == EnumAppSide.Client)
+        {
+            return;
+        }
+        
         if (blockSel.Block.Attributes == null)
         {
             return;
         }
         
         if(!blockSel.Block.Attributes.KeyExists("treeFellingGroupCode")){
-            return;
-        }
-        var groupCode = blockSel.Block.Attributes["treeFellingGroupCode"].AsString("");
-        if (string.IsNullOrEmpty(groupCode))
-        {
             return;
         }
 
@@ -45,12 +45,8 @@ public class ItemAxePatch
 
         var playerSkillSet = (byEntity).GetBehavior<PlayerSkillSet>();
         var skill = playerSkillSet?.FindSkill("Forestry", true);
-        if (skill == null)
-        {
-            return;
-        }
-        
-        var ability = skill.PlayerAbilities[RandomSeedXSkillModSystem.ForestFortuneAbilityId];
+
+        var ability = skill?.PlayerAbilities[RandomSeedXSkillModSystem.ForestFortuneAbilityId];
         if (ability != null)
         {
             var chance = ability.Value(0, 0);
@@ -64,9 +60,12 @@ public class ItemAxePatch
                 }
                 
                 var randomSeed = seeds[Random.Shared.Next(0, seeds.Count)];
-                ItemStack itemStack = new ItemStack(world.GetItem(new AssetLocation(randomSeed.Code.Domain, randomSeed.Code.Path)), 1);
+                var itemStack = new ItemStack(world.GetItem(new AssetLocation(randomSeed.Code.Domain, randomSeed.Code.Path)), 1);
 
-                playerEntity.TryGiveItemStack(itemStack);
+                if (!playerEntity.TryGiveItemStack(itemStack))
+                {
+                    world.SpawnItemEntity(itemStack, playerEntity.SidedPos.XYZ);
+                }
             }
         }
     }
